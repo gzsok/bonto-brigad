@@ -1,0 +1,85 @@
+:root {
+  --ink: #111714;
+  --ink-soft: #1c2420;
+  --signal: #c9ff35;
+  --signal-dark: #9fd315;
+  --paper: #f4f1e9;
+  --white: #fffef9;
+  --muted: #666d67;
+  --line: rgba(17, 23, 20, .16);
+  --display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  --body: "Manrope", system-ui, sans-serif;
+  --wrap: min(1180px, calc(100% - 48px));
+  --shadow: 0 24px 70px rgba(17, 23, 20, .12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 104px; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+body.menu-open { overflow: hidden; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: var(--signal); color: var(--ink); }
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+  transform: translateY(-150%);
+  background: var(--signal);
+  color: var(--ink);
+  padding: 10px 16px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.skip-link:focus { transform: translateY(0); }
+
+.wrap { width: var(--wrap); margin-inline: auto; }
+.section { padding: 112px 0; }
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.kicker::before {
+  width: 28px;
+  height: 3px;
+  background: var(--signal-dark);
+  content: "";
+}
+.kicker--light { color: rgba(255, 255, 255, .68); }
+.kicker--light::before { background: var(--signal); }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 800;
+  line-height: .98;
+  text-transform: uppercase;
+}
+h2 {
+  margin-bottom: 22px;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  letter-spacing: -.025em;
+}
+.section-lead {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.7vw, 1.18rem);
+}
+

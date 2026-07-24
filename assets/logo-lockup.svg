@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 116" role="img" aria-labelledby="title desc">
+  <title id="title">Bontó Brigád logó</title>
+  <desc id="desc">Bontó Brigád embléma és szólogó</desc>
+  <rect x="4" y="4" width="108" height="108" rx="22" fill="#c9ff35"/>
+  <path fill="#111714" d="M27 27h13v62H27zM40 27h21c15 0 24 7 24 17 0 6-4 11-10 14 8 2 13 7 13 14 0 11-10 17-27 17H40V77h20c9 0 14-3 14-7 0-5-5-7-14-7H47V52h12c8 0 12-3 12-7 0-5-4-7-12-7H40z"/>
+  <path d="M22 92 94 20" stroke="#f4f1e9" stroke-width="6"/>
+  <text x="139" y="65" fill="#111714" font-family="Arial Narrow, Arial, sans-serif" font-size="51" font-weight="900" letter-spacing="1">BONTÓ BRIGÁD</text>
+  <text x="141" y="91" fill="#6a706c" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="3.1">BONTÁS • FELÚJÍTÁS • KARBANTARTÁS</text>
+</svg>
