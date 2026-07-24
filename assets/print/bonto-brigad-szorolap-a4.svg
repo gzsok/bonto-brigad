@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2480" height="3508" viewBox="0 0 2480 3508">
+  <defs>
+    <style>
+      @font-face {
+        font-family: "Barlow Condensed";
+        src: url("../fonts/barlow-condensed-800-latin-ext.woff2") format("woff2");
+        font-weight: 800;
+      }
+      @font-face {
+        font-family: "Manrope";
+        src: url("../fonts/manrope-latin-ext.woff2") format("woff2");
+        font-weight: 400 800;
+      }
+      .display { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-weight: 800; }
+      .body { font-family: "Manrope", Arial, sans-serif; }
+    </style>
+
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#fffef9" stroke-opacity=".065" stroke-width="2"/>
+    </pattern>
+
+    <pattern id="hatch" width="32" height="32" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="32" stroke="#fffef9" stroke-opacity=".08" stroke-width="4"/>
+    </pattern>
+
+    <clipPath id="flyer-clip">
+      <rect width="1240" height="1754"/>
+    </clipPath>
+
+    <g id="flyer" clip-path="url(#flyer-clip)">
+      <rect width="1240" height="1754" fill="#f4f1e9"/>
+
+      <rect x="56" y="56" width="1128" height="890" fill="#111714"/>
+      <rect x="56" y="56" width="1128" height="890" fill="url(#grid)"/>
+      <path d="M895 56h289v290L895 56Z" fill="url(#hatch)"/>
+      <path d="M899 56 1184 341" fill="none" stroke="#c9ff35" stroke-opacity=".42" stroke-width="7"/>
+      <circle cx="1040" cy="198" r="86" fill="none" stroke="#c9ff35" stroke-opacity=".54" stroke-width="6"/>
+
+      <image href="../logo-mark.svg" x="92" y="91" width="126" height="126"/>
+      <text x="250" y="151" class="display" fill="#fffef9" font-size="62" letter-spacing="1.2">BONTÓ BRIGÁD</text>
+      <text x="253" y="191" class="body" fill="#c9ff35" font-size="18" font-weight="800" letter-spacing="4.1">BONTÁS • FELÚJÍTÁS • KARBANTARTÁS</text>
+
+      <rect x="92" y="282" width="48" height="7" fill="#c9ff35"/>
+      <text x="160" y="294" class="body" fill="#aeb5af" font-size="23" font-weight="800" letter-spacing="4">HELYI, PÉCSI CSAPAT</text>
+
+      <text x="90" y="432" class="display" fill="#fffef9" font-size="126" letter-spacing="-2">
+        <tspan x="90" dy="0">BONTÁS ÉS</tspan>
+        <tspan x="90" dy="118">LAKÁSFELÚJÍTÁS</tspan>
+        <tspan x="90" dy="118" fill="#c9ff35">PÉCSEN.</tspan>
+      </text>
+
+      <text x="94" y="834" class="body" fill="#b6bcb7" font-size="27">
+        <tspan x="94" dy="0">Megtervezzük, megcsináljuk,</tspan>
+        <tspan x="94" dy="43">rendben átadjuk.</tspan>
+      </text>
+
+      <text x="82" y="1024" class="display" fill="#111714" font-size="59">A BONTÁSTÓL AZ ÁTADÁSIG.</text>
+      <line x1="82" y1="1053" x2="1158" y2="1053" stroke="#111714" stroke-opacity=".18" stroke-width="3"/>
+
+      <g class="body" fill="#111714">
+        <g transform="translate(82 1094)">
+          <rect width="58" height="38" fill="#c9ff35"/>
+          <text x="29" y="27" text-anchor="middle" font-size="17" font-weight="800">01</text>
+          <text x="78" y="29" font-size="24" font-weight="800" letter-spacing=".7">LAKÁSBONTÁS</text>
+        </g>
+        <g transform="translate(635 1094)">
+          <rect width="58" height="38" fill="#c9ff35"/>
+          <text x="29" y="27" text-anchor="middle" font-size="17" font-weight="800">02</text>
+          <text x="78" y="29" font-size="24" font-weight="800" letter-spacing=".7">TELJES FELÚJÍTÁS</text>
+        </g>
+        <g transform="translate(82 1160)">
+          <rect width="58" height="38" fill="#c9ff35"/>
+          <text x="29" y="27" text-anchor="middle" font-size="17" font-weight="800">03</text>
+          <text x="78" y="29" font-size="24" font-weight="800" letter-spacing=".7">KARBANTARTÁS</text>
+        </g>
+        <g transform="translate(635 1160)">
+          <rect width="58" height="38" fill="#c9ff35"/>
+          <text x="29" y="27" text-anchor="middle" font-size="17" font-weight="800">04</text>
+          <text x="78" y="29" font-size="24" font-weight="800" letter-spacing=".7">BÚTORSZERELÉS</text>
+        </g>
+      </g>
+
+      <rect x="56" y="1260" width="1128" height="438" fill="#c9ff35"/>
+      <circle cx="1101" cy="1325" r="170" fill="none" stroke="#111714" stroke-opacity=".075" stroke-width="48"/>
+      <text x="90" y="1350" class="body" fill="#4d6410" font-size="21" font-weight="800" letter-spacing="4.5">INGYENES HELYSZÍNI FELMÉRÉS</text>
+      <text x="88" y="1451" class="display" fill="#111714" font-size="82" letter-spacing="-.8">
+        <tspan x="88" dy="0">HÍVJON, ÉS BESZÉLJÜK</tspan>
+        <tspan x="88" dy="76">ÁT A FELADATOT!</tspan>
+      </text>
+
+      <rect x="88" y="1571" width="647" height="82" fill="#111714"/>
+      <text x="118" y="1627" class="display" fill="#fffef9" font-size="53" letter-spacing="1">+36 30 229 9269</text>
+      <text x="773" y="1598" class="body" fill="#111714" font-size="24" font-weight="800">bontobrigad.hu</text>
+      <text x="773" y="1634" class="body" fill="#526219" font-size="18" font-weight="700">Pécs és környéke</text>
+      <text x="773" y="1662" class="body" fill="#526219" font-size="18">info@bontobrigad.hu</text>
+    </g>
+  </defs>
+
+  <rect width="2480" height="3508" fill="#fffef9"/>
+  <use href="#flyer" x="0" y="0"/>
+  <use href="#flyer" x="1240" y="0"/>
+  <use href="#flyer" x="0" y="1754"/>
+  <use href="#flyer" x="1240" y="1754"/>
+
+  <g fill="none" stroke="#111714" stroke-opacity=".28" stroke-width="2" stroke-dasharray="18 16">
+    <line x1="1240" y1="0" x2="1240" y2="3508"/>
+    <line x1="0" y1="1754" x2="2480" y2="1754"/>
+  </g>
+</svg>

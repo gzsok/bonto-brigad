@@ -76,5 +76,6 @@ jobs:
             **/.github/**
             **/images/**
             **/scripts/**
+            **/assets/print/**
             AGENTS.md
             config.example.php
