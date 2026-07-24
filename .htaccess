@@ -4,6 +4,7 @@ Options -Indexes
 DirectoryIndex index.html
 AddDefaultCharset UTF-8
 AddType font/woff2 .woff2
+AddType image/vnd.microsoft.icon .ico
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -30,8 +31,10 @@ AddType font/woff2 .woff2
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
   ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
   ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
