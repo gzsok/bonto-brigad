@@ -80,6 +80,11 @@
   .faq-item p { padding-right: 0; }
   .project-grid { grid-template-columns: 1fr; grid-template-rows: 380px repeat(2, 220px); }
   .project-card:first-child { grid-row: auto; }
+  .project-card { padding: 22px; }
+  .project-card__label { align-items: flex-start; flex-direction: column; gap: 2px; }
+  .project-lightbox { width: calc(100% - 24px); max-height: calc(100dvh - 24px); }
+  .project-lightbox__inner { max-height: calc(100dvh - 24px); }
+  .project-lightbox__image { max-height: calc(100dvh - 76px); }
   .refs-note { align-items: flex-start; flex-direction: column; }
   .contact-card { padding: 28px 24px; }
   .contact-form { padding: 28px 22px; }

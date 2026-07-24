@@ -31,6 +31,7 @@ AddType font/woff2 .woff2
   ExpiresByType application/javascript "access plus 1 month"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
   ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
@@ -45,7 +46,7 @@ AddType font/woff2 .woff2
   </FilesMatch>
 </IfModule>
 
-<FilesMatch "^(\.htaccess|\.gitignore|AGENTS\.md|config\.php)$">
+<FilesMatch "^(\.htaccess|\.gitignore|\.ftp-deploy-sync-state\.json|AGENTS\.md|config\.php)$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>

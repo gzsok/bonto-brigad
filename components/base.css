@@ -23,7 +23,7 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
-body.menu-open { overflow: hidden; }
+body.menu-open, body.lightbox-open { overflow: hidden; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -82,4 +82,3 @@ h2 {
   color: var(--muted);
   font-size: clamp(1rem, 1.7vw, 1.18rem);
 }
-

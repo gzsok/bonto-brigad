@@ -281,27 +281,40 @@
         <div class="references__head reveal">
           <div>
             <p class="kicker">Referenciák</p>
-            <h2>A munkáink fotói hamarosan itt lesznek.</h2>
+            <h2>Egy elkészült lakás, három részlet.</h2>
           </div>
-          <p>Az elkészült munkáinkról hamarosan előtte-utána fotókkal együtt itt számolunk be.</p>
+          <p>Fürdőszoba, konyha és nappali a kivitelezés után. Kattintson a képekre a teljes méretű, eredeti színű fotókért.</p>
         </div>
         <div class="project-grid">
-          <div class="project-card reveal">
-            <div class="project-card__label"><strong>Teljes lakásfelújítás</strong><span>Fotók hamarosan</span></div>
-          </div>
-          <div class="project-card reveal">
-            <div class="project-card__label"><strong>Bontás</strong><span>Hamarosan</span></div>
-          </div>
-          <div class="project-card reveal">
-            <div class="project-card__label"><strong>Kivitelezés</strong><span>Hamarosan</span></div>
-          </div>
+          <a class="project-card reveal" href="assets/references/pafrany-17-furdo-2400.webp" data-project-photo data-caption="Elkészült fürdőszoba" aria-label="Az elkészült fürdőszoba fotójának megnyitása nagy méretben">
+            <img src="assets/references/pafrany-17-furdo-1200.webp" width="1200" height="1600" loading="lazy" decoding="async" alt="Világos burkolatú, üvegfalas zuhanyzóval és fa hatású mosdószekrénnyel elkészült fürdőszoba">
+            <span class="project-card__label"><strong>Fürdőszoba</strong><span>Megnyitás ↗</span></span>
+          </a>
+          <a class="project-card reveal" href="assets/references/pafrany-17-konyha-2400.webp" data-project-photo data-caption="Elkészült konyha" aria-label="Az elkészült konyha fotójának megnyitása nagy méretben">
+            <img src="assets/references/pafrany-17-konyha-1200.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Fehér frontokkal, fa hatású munkapulttal és beépített sütővel elkészült konyha">
+            <span class="project-card__label"><strong>Konyha</strong><span>Megnyitás ↗</span></span>
+          </a>
+          <a class="project-card reveal" href="assets/references/pafrany-17-nappali-2400.webp" data-project-photo data-caption="Elkészült nappali" aria-label="Az elkészült nappali fotójának megnyitása nagy méretben">
+            <img src="assets/references/pafrany-17-nappali-1200.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Világos falakkal és fa hatású padlóval elkészült, berendezett nappali">
+            <span class="project-card__label"><strong>Nappali</strong><span>Megnyitás ↗</span></span>
+          </a>
         </div>
         <div class="refs-note reveal">
-          <span>Szívesen mesélünk a korábbi munkáinkról a helyszíni felmérés alkalmával — kérdezzen bátran a részletekről!</span>
+          <span>Teljes lakásfelújítás összehangolt munkafolyamatokkal, a bontástól az átadásig.</span>
           <strong>Ingyenes helyszíni felmérés</strong>
         </div>
       </div>
     </section>
+
+    <dialog class="project-lightbox" id="project-lightbox" aria-labelledby="project-lightbox-caption">
+      <div class="project-lightbox__inner">
+        <button class="project-lightbox__close" type="button" aria-label="Kép bezárása">×</button>
+        <figure>
+          <img class="project-lightbox__image" alt="">
+          <figcaption id="project-lightbox-caption"></figcaption>
+        </figure>
+      </div>
+    </dialog>
 
     <section class="contact section" id="kapcsolat">
       <div class="contact__grid wrap">
@@ -434,6 +447,41 @@
       }, { threshold: .12 });
       revealItems.forEach(item => observer.observe(item));
     }
+
+    const projectLightbox = document.querySelector('#project-lightbox');
+    const projectLightboxImage = projectLightbox.querySelector('.project-lightbox__image');
+    const projectLightboxCaption = projectLightbox.querySelector('figcaption');
+    const projectLightboxClose = projectLightbox.querySelector('.project-lightbox__close');
+
+    document.querySelectorAll('[data-project-photo]').forEach(photo => {
+      photo.addEventListener('click', event => {
+        if (
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey ||
+          typeof projectLightbox.showModal !== 'function'
+        ) return;
+
+        event.preventDefault();
+        const preview = photo.querySelector('img');
+        projectLightboxImage.src = photo.href;
+        projectLightboxImage.alt = preview.alt;
+        projectLightboxCaption.textContent = photo.dataset.caption;
+        projectLightbox.showModal();
+        document.body.classList.add('lightbox-open');
+      });
+    });
+
+    projectLightboxClose.addEventListener('click', () => projectLightbox.close());
+    projectLightbox.addEventListener('click', event => {
+      if (event.target === projectLightbox) projectLightbox.close();
+    });
+    projectLightbox.addEventListener('close', () => {
+      document.body.classList.remove('lightbox-open');
+      projectLightboxImage.removeAttribute('src');
+    });
 
     const contactForm = document.querySelector('#contact-form');
     const formStatus = document.querySelector('#form-status');
