@@ -2,9 +2,15 @@
 
 Options -Indexes
 DirectoryIndex index.html
+AddDefaultCharset UTF-8
+AddType font/woff2 .woff2
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # A kozvetlen /index.html URL ne hozzon letre duplikalt kezdooldalt.
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ https://bontobrigad.hu/ [R=301,L]
 
   # A HTTPS nelkuli es a www-s kereseket az elsodleges cimre iranyitjuk.
   RewriteCond %{HTTPS} !=on [OR]
@@ -25,6 +31,7 @@ DirectoryIndex index.html
   ExpiresByType application/javascript "access plus 1 month"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -32,9 +39,13 @@ DirectoryIndex index.html
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  <FilesMatch "^send\.php$">
+    Header set X-Robots-Tag "noindex, nofollow"
+  </FilesMatch>
 </IfModule>
 
-<FilesMatch "^(\.htaccess|\.gitignore|AGENTS\.md)$">
+<FilesMatch "^(\.htaccess|\.gitignore|AGENTS\.md|config\.php)$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>

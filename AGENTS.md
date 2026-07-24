@@ -18,6 +18,7 @@ repository as a static directory.
 ## Project structure
 
 - `index.html`: page content, metadata, navigation, and browser interactions
+- `components/fonts.css`: self-hosted Barlow Condensed and Manrope font faces
 - `components/base.css`: design tokens, resets, typography, and shared utilities
 - `components/header.css`: header, brand, navigation, and mobile menu
 - `components/hero.css`: hero section and primary calls to action
@@ -25,10 +26,15 @@ repository as a static directory.
 - `components/responsive.css`: reveal behavior, breakpoints, mobile layouts, and reduced-motion rules
 - `assets/logo-mark.svg`: standalone Bontó Brigád brand mark and favicon
 - `assets/logo-lockup.svg`: horizontal mark and wordmark combination
+- `assets/logo-512.png`: square search-engine and touch-icon brand asset
 - `assets/og.png`: social-sharing preview image
+- `assets/fonts/`: self-hosted WOFF2 font subsets and their OFL license files
 - `sitemap.xml`: search-engine sitemap for `https://bontobrigad.hu/`
 - `robots.txt`: crawler rules and sitemap reference
 - `.htaccess`: Rackhost/Apache redirects, compression, caching, and security headers
+- `send.php`: validated JSON contact endpoint and PHPMailer SMTP delivery
+- `config.php`: ignored local SMTP configuration; never print or commit its values
+- `lib/phpmailer/`: vendored PHPMailer source
 
 Keep new project-owned visual assets under `assets/`. Keep page-level component
 styles under `components/`.
@@ -53,6 +59,8 @@ styles under `components/`.
   JavaScript.
 - Avoid introducing a build step solely for formatting, asset loading, or small
   interactions.
+- Do not edit vendored files under `lib/phpmailer/` unless a task explicitly
+  concerns the library itself.
 
 ## Brand and visual system
 
@@ -122,6 +130,9 @@ Avoid fixed widths that can create horizontal scrolling on small screens.
 - Treat `https://bontobrigad.hu/` as the canonical production URL. Redirect
   HTTP and `www` requests to this HTTPS, non-`www` address.
 - Keep `assets/og.png` at a social-card-friendly landscape ratio.
+- Keep the `WebSite`, `WebPage`, and `GeneralContractor` JSON-LD graph aligned
+  with visible page content. Do not add fabricated addresses, opening hours,
+  ratings, reviews, prices, or service areas.
 - Use relative paths so the site continues to work from static hosting and
   local preview.
 - Optimize new raster assets before committing them.
@@ -133,10 +144,16 @@ There is no automated test suite. After relevant changes:
 1. Confirm every referenced local asset and stylesheet exists.
 2. Confirm `index.html` parses without structural errors.
 3. Confirm CSS braces are balanced and the stylesheet loading order remains:
-   `base`, `header`, `hero`, `sections`, `responsive`.
+   `fonts`, `base`, `header`, `hero`, `sections`, `responsive`.
 4. Check navigation anchors, phone links, email links, and mobile-menu behavior.
 5. Check desktop and mobile layouts when visual behavior changed.
 6. Review `git diff` and ensure no unrelated or generated files are included.
+
+For contact-form changes, also run `php -l send.php` and `php -l config.php`.
+Keep server-side validation authoritative. Preserve the POST-only JSON response
+contract: successful requests return `{"ok":true}`, and failures return
+`{"ok":false,"error":"..."}`. Never expose SMTP credentials or detailed mail
+transport errors to visitors.
 
 Do not add temporary build output, local server files, hosting configuration, or
 generated dependency folders to the repository.

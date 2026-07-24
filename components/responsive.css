@@ -1,6 +1,7 @@
 /* Reveal */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (max-width: 980px) {
   :root { --wrap: min(100% - 40px, 760px); }
@@ -26,7 +27,15 @@
     font-size: 28px;
     text-transform: uppercase;
   }
-  .nav__links.is-open .nav__phone { margin-top: 20px; justify-content: center; border: 0; }
+  .nav__links.is-open .nav__phone { margin-top: 10px; }
+  .nav__links.is-open .nav__cta {
+    justify-content: center;
+    margin-top: 20px;
+    border: 0;
+    font-family: var(--body);
+    font-size: 16px;
+    text-transform: none;
+  }
   .hero { min-height: auto; }
   .hero__grid { grid-template-columns: 1fr; gap: 54px; }
   .hero h1 { max-width: 850px; }
@@ -37,8 +46,11 @@
   .about__grid { grid-template-columns: 1fr; gap: 40px; }
   .about__intro { position: static; }
   .about__copy { padding-top: 0; }
+  .faq__grid { grid-template-columns: 1fr; gap: 42px; }
+  .faq__intro { position: static; }
   .contact__grid { grid-template-columns: 1fr; align-items: start; }
   .contact-card { min-width: 0; width: min(100%, 470px); }
+  .contact-form { width: 100%; }
 }
 
 @media (max-width: 680px) {
@@ -64,15 +76,23 @@
   .service-card__number { margin-bottom: 55px; }
   .traits { grid-template-columns: 1fr; }
   .trait { min-height: auto; }
+  .faq-item summary { padding: 25px 50px 25px 0; }
+  .faq-item p { padding-right: 0; }
   .project-grid { grid-template-columns: 1fr; grid-template-rows: 380px repeat(2, 220px); }
   .project-card:first-child { grid-row: auto; }
   .refs-note { align-items: flex-start; flex-direction: column; }
   .contact-card { padding: 28px 24px; }
+  .contact-form { padding: 28px 22px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-field--full { grid-column: auto; }
+  .contact-form__footer { align-items: stretch; flex-direction: column; }
+  .form-submit { width: 100%; }
+  .form-note { text-align: left; }
   .footer__top, .footer__bottom { align-items: flex-start; flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 1; transform: none; }
 }
